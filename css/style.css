@@ -515,10 +515,24 @@ h3.my-profession {
   color: var(--text-black-900);
 }
 .about .about-content .timeline .timeline-text {
+  list-style: disc;
   line-height: 25px;
   font-size: 16px;
   text-align: justify;
   color: var(--text-black-700);
+}
+
+.experience-description li {
+  margin-bottom: 5px;
+  margin-left: 30px;
+  
+}
+/*------experience-descriptions-----*/
+.timeline-title a {
+  color: var(--skin-color);
+  font-weight: 600;
+  padding: 2px 5px;
+  border-radius: 3px;
 }
 
 /* Service ----------------------------------*/
