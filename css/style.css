@@ -138,7 +138,7 @@ ul {
   white-space: nowrap;
   border: none;
   background: var(--skin-color);
-  transition: all 03s ease;
+  transition: all 0.2s ease;
 }
 .btn:hover {
   transform: scale(1.05);
