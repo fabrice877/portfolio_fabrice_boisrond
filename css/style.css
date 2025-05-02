@@ -527,6 +527,24 @@ h3.my-profession {
   margin-left: 30px;
   
 }
+
+/* Style de base du lien email */
+.info-item a {
+  color: var(--text-black-700); /* Couleur identique à votre texte normal */
+  text-decoration: none; /* Supprime le soulignement par défaut */
+  font-weight: 400; /* Poids de police normal comme pour "Ville" */
+  transition: color 0.3s ease; /* Animation fluide au survol */
+}
+
+/* Style au survol */
+.info-item a:hover {
+  color: var(--skin-color); /* Utilise votre couleur thématique */
+  /* Ou si vous préférez exactement comme "Ville" : */
+  /* color: var(--text-black-700); */
+}
+.info-item p {
+  font-weight: 600; /* Style pour le libellé (Email, Ville etc.) */
+}
 /*------experience-descriptions-----*/
 .timeline-title a {
   color: var(--skin-color);
