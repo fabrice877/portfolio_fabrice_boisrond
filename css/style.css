@@ -448,10 +448,31 @@ h3.my-profession {
   line-height: 40px;
 }
 .about .about-content .education,
-.about .about-content .experience {
+.about .about-content .experience,
+.about .about-content .interet{
   flex: 0 0 50%;
   max-width: 50%;
-  margin-top: 30px;
+  margin-top: 30px; 
+}
+/*-----------------------------image centre d'interet-----------------*/
+.interet .interet-img img{
+  flex: 0 0 70%;
+  max-width: 70%;
+  display: block;
+  margin-left: auto;
+}
+
+.text-interet{
+  list-style: disc;
+  line-height: 25px;
+  font-size: 16px;
+  text-align: justify;
+  color: var(--text-black-700);
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+.text-interet p{
+ margin-bottom: 10px;
 }
 .about .about-content h3.title {
   font-size: 24px;
@@ -475,6 +496,15 @@ h3.my-profession {
   padding-left: 37px;
   padding-bottom: 50px;
 }
+.about .about-content .timeline .timeline-item .timeline-interet{
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
+
+}
+ 
+
+
 
 .about .about-content .timeline .timeline-item:last-child {
   padding-bottom: 0;
@@ -507,6 +537,11 @@ h3.my-profession {
 .about .about-content .timeline .timeline-date .fa {
   margin-right: 5px;
 }
+
+.about .about-content .timeline .timeline-title .fa {
+  margin-right: 5px;
+}
+
 .about .about-content .timeline .timeline-title {
   font-weight: 700;
   font-size: 18px;
@@ -645,6 +680,8 @@ h3.my-profession {
   display: block;
 }
 
+
+
 /*Contact-------------------------------------------------------------------*/
 .contact-title {
   color: var(--skin-color);
@@ -724,6 +761,11 @@ h3.my-profession {
   height: 50px;
   padding: 0 50px;
 }
+.email-link {
+  word-break: break-all; /* Force la césure si trop long */
+  display: inline-block; /* Meilleur contrôle que inline */
+  max-width: 100%; /* Évite le débordement */
+}
 
 
 /*--------------MASQUER LA BARRE-------------------*/
@@ -795,10 +837,12 @@ h3.my-profession {
   .about .about-content .experience,
   .about .about-content .education,
   .about .about-content .skills,
-  .about .about-content .personal-info{
+  .about .about-content .personal-info,
+  .about .about-content .interet{
     flex: 0 0 100%;
     max-width: 100%;
   }
+
 }
 @media (min-width: 344px) and (max-width:760px) {
   .section .container{
@@ -825,5 +869,21 @@ h3.my-profession {
     border: none;
     background: var(--skin-color);
     transition: all 0.2s ease;
+  }
+  .about .about-content .interet .interet-img{
+    display: none;
+  }
+  .text-interet{
+    list-style: disc;
+    line-height: 25px;
+    font-size: 16px;
+    text-align: justify;
+    color: var(--text-black-700);
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .email-link {
+    display: block;
+    text-align: center;
   }
 }

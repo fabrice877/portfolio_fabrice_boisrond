@@ -1,9 +1,9 @@
 /*====================================================================typing animation========================================================================*/
 var typed = new Typed(".typing", {
   strings: [
-    "étudiant en recherche d'alternance",
-    "étudiant en recherche d'alternance",
-    "étudiant en recherche d'alternance",
+    "à la recherche d'une alternance",
+    "à la recherche d'une alternance",
+    "à la recherche d'une alternance",
   ],
   typeSpeed: 100,
   backSpeed: 60,
@@ -90,3 +90,58 @@ const navTogglerBtn = document.querySelector(".nav-toggler"),
       allSection[i].classList.toggle("open");
     }
   }
+
+  // Gestion du formulaire
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.innerHTML;
+  
+  // Feedback visuel pendant l'envoi
+  submitBtn.innerHTML = 'Envoi en cours...';
+  submitBtn.disabled = true;
+  
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      form.reset();
+      showFormResponse('Message envoyé avec succès !', 'success');
+    } else {
+      throw new Error('Erreur réseau');
+    }
+  })
+  .catch(error => {
+    showFormResponse('Une erreur est survenue. Veuillez réessayer.', 'error');
+  })
+  .finally(() => {
+    submitBtn.innerHTML = originalBtnText;
+    submitBtn.disabled = false;
+  });
+});
+
+function showFormResponse(message, type) {
+  const responseDiv = document.createElement('div');
+  responseDiv.id = 'formResponse';
+  responseDiv.textContent = message;
+  responseDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+  responseDiv.style.color = type === 'success' ? '#155724' : '#721c24';
+  
+  const existingResponse = document.getElementById('formResponse');
+  if (existingResponse) {
+    existingResponse.remove();
+  }
+  
+  document.querySelector('.contact-form').appendChild(responseDiv);
+  responseDiv.style.display = 'block';
+  
+  setTimeout(() => {
+    responseDiv.style.display = 'none';
+  }, 5000);
+}
